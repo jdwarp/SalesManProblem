@@ -1,4 +1,6 @@
 ## solve a simple Euclidean TSP (using the default method)
+library(TSP)
+
 etsp <- ETSP(data.frame(x = runif(20), y = runif(20)))
 tour <- solve_TSP(etsp)
 tour

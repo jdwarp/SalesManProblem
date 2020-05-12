@@ -1,7 +1,7 @@
 ---
 title: "Field Baker's day at campus"
-author: "Dr. J"
-date: "4/17/2020"
+author: "Jaime Duran"
+date: "5/5/2020"
 output: html_document
 ---
 
@@ -27,9 +27,23 @@ The stops he must make and the North, East coordinates of each are givnen in the
    
    Find the shortest route freshman Field can take on this visit.  Only 1 restroom stop
    
+## Answer
+The freshman will arrive at the Bus Stop and walk in a counter-clockwise path. 
+Begining from the Bus Stop (25,200) walk to the Student Union Builing (250, 300). From the Student Union the student can walk towards a restroom located at (280,290) then continue walking towards the Walter Stern Library (300, 250). From the library the student should stop by Dorthey Donahue Hall (250, 200). Afterwards the fresmhen can visit the Administration Building (260, 50) and the Engineering Complex (110, 160) . After leaving the engineering complex, the student will arrive back at the  Bus Stop (25, 200). 
    
 ```{r}
+x = c(200, 160, 200,300,250,50)
+y = c(25, 110, 250, 250, 300, 260)
+```
 
+  
+```{r}
+tourMAT = ETSP(data.frame(x, y))
+tourSolve = solve_TSP(tourMAT)
+tour_length(tourSolve)
+plot(tourMAT, tourSolve )
+points(280, 290, col=2 )
+grid()
 ```
 
    
